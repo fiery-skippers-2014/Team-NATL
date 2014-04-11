@@ -14,5 +14,5 @@ Tyler
 Schema:
 ======================
 
-[Imgur](http://i.imgur.com/JvaDddG.jpg?1)
+![Imgur](http://i.imgur.com/JvaDddG.jpg?1)
 
