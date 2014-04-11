@@ -1,9 +1,11 @@
+<h1><%= @survey.title %></h1>
+<h2><%= @question.text %> </h2>
 <form class="new_choice" action="/survey/<%= @survey.id %>/question/<%= @question.id %>" method="post">
-  Choice 1: <input type="text" name="text1" placeholder="Dumb and Dumber" required >
-  Choice 2: <input type="text" name="text2" placeholder="Caddyshack" required>
-  Choice 3: <input type="text" name="text3" placeholder="White Girls">
-  Choice 4: <input type="text" name="text4" placeholder="Old School">
-  Choice 5: <input type="text" name="text5" placeholder="The Hangover">
+  Choice 1: <input type="text" name="text1" placeholder="Dumb and Dumber" required ><br>
+  Choice 2: <input type="text" name="text2" placeholder="Caddyshack" required><br>
+  Choice 3: <input type="text" name="text3" placeholder="White Girls"><br>
+  Choice 4: <input type="text" name="text4" placeholder="Old School"><br>
+  Choice 5: <input type="text" name="text5" placeholder="The Hangover"><br>
   <input type="submit" value="create survey">
 
 </form>

@@ -38,6 +38,8 @@ get '/survey/new' do
 end
 
 post '/survey' do
+  @user = current_user
+  params[:user_id] = @user.id
   @survey = Survey.create(params)
   redirect "/survey/#{@survey.id}/question/new"
 end
@@ -48,11 +50,15 @@ get '/survey/:id/question/new' do
 end
 
 post '/survey/:id/question' do
-  @question = Question.create(params)
+  @question = Question.new(text: params[:text])
+  @question.survey_id = params[:id]
+  @question.save
   redirect "/survey/#{params[:id]}/question/#{@question.id}/choice/new"
 end
 
 get '/survey/:id/question/:question_id/choice/new' do
+  @survey = Survey.find(params[:id])
+  @question = Question.find(params[:question_id])
   erb :choice_new
 end
 

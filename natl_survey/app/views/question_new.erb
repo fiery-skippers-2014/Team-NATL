@@ -1,5 +1,6 @@
 <form class="new_question" action="/survey/<%= @survey.id %>/question" method="post">
   Question: <input type="text" name="text" placeholder="Which is your favorite comedy movie?" required>
+  <input type="hidden" value="<%= @survey.id %>" name="survey_id">
   <input type="submit" value="create question">
 
 </form>
