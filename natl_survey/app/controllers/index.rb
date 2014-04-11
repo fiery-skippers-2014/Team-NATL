@@ -62,12 +62,13 @@ end
 # Viewing/ taking survey routes
 
 get '/survey/:id' do
+  @survey = Survey.find(params)
   erb :survey
 end
 
 post '/survey/:id/submit' do
   #creates a record in users_surveys
-  UsersSurvey.create(:user_id : session[:user_id], :survey_id : params[:id])
+  UsersSurvey.create(user_id: session[:user_id], survey_id: params[:id])
   #creates multiple record in users_answers
   #UsersChoice.create(:user_id : session[:user_id], :choice_id : ????)
 end

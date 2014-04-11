@@ -1,0 +1,15 @@
+<div>
+  <h2><%= @survey.title %></h2>
+  <ol>
+  <% @survey.questions.each_with_index do |question, question_number|  %>
+    <li><%= question.text %></li>
+      <form id="question<%= question_number %>" method="post" action="">
+        <% question.choices.each do |choice| %>
+        <input type="radio" name="choice_id" value="<%= choice.id %>"> <%= choice.text %><br>
+        <% end %>
+      </form>
+
+  <% end %>
+
+  </ol>
+</div>
