@@ -1,5 +1,12 @@
-
-  <h1>NATL Survey</h1>
-
+<h1>NATL Survey</h1>
 
 
+
+<% if current_user %>
+  <ul>
+    <% @surveys.each do |survey| %>
+    <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a> by <%= survey.user.username %></li>
+    <% end %>
+  </ul>
+
+<% end %>
