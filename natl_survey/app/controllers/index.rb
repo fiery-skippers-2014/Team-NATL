@@ -20,8 +20,9 @@ post '/login' do
 end
 
 post '/register' do
-  p params
   User.create(params)
+  @user = User.last
+  session[:user_id] = @user.id
   redirect '/'
 end
 
@@ -91,5 +92,14 @@ post '/survey/submit' do
   UsersSurvey.create(user_id: session[:user_id], survey_id: @question.survey.id)
 
   redirect '/'
+end
+
+get '/users/:id' do
+  if session[:user_id].to_i == params[:id].to_i
+    @user = User.find(session[:user_id])
+    erb :profile
+  else
+    redirect '/'
+  end
 end
 

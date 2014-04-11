@@ -1,0 +1,28 @@
+<h1><%= @user.username %></h1>
+
+<h2> Surveys you have created</h2>
+
+
+<% if @user.surveys.count > 0 %>
+  <ol>
+    <% @user.surveys.each do |survey| %>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+
+    <% end %>
+  </ol>
+  <% else %>
+  <p>You haven't created any surveys yet!</p>
+  <% end %>
+
+
+
+<h2> Surveys you have taken</h2>
+<% if @user.users_surveys.count > 0 %>
+ <ol>
+    <% @user.users_surveys.each do |user_survey| %>
+      <li><a href="/survey/<%= user_survey.id %>"><%= user_survey.survey.title %></a></li>
+      <% end %>
+    <% else %>
+      <p>You haven't taken any surveys yet!</p>
+    <% end %>
+  </ol>

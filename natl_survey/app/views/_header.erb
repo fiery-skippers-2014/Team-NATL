@@ -1,14 +1,15 @@
-<div>
+<div class="header">
   <ul>
-    <li><a href="/">Home</a></li>
-
+    <li id="logo"><a href="/">NAT'L Surveys</a></li>
     <% if current_user %>
+      <li>Hello <%= @user.username %>!</a></li>
       <li><a href="/survey/new">Create New Survey</a></li>
-      <li>Hello <%= @user.username %></li>
+      <li><a href="/users/<%= @user.id %>">My Profile</a></li>
       <li><a href="/logout">logout</a></li>
       <% else %>
       <li><a href="/login">login</a></li>
       <% end %>
+
   </ul>
 
 </div>
