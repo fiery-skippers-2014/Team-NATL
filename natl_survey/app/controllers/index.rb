@@ -82,10 +82,14 @@ get '/survey/:id' do
   erb :survey
 end
 
-post '/survey/:id/submit' do
-  #creates a record in users_surveys
-  UsersSurvey.create(user_id: session[:user_id], survey_id: params[:id])
-  #creates multiple record in users_answers
-  #UsersChoice.create(:user_id : session[:user_id], :choice_id : ????)
+post '/survey/submit' do
+  params.each do |question_id, choice_id|
+     UsersChoice.create(user_id: session[:user_id], choice_id: choice_id)
+      @question = question_id
+  end
+  @question = Question.find(@question)
+  UsersSurvey.create(user_id: session[:user_id], survey_id: @question.survey.id)
+
+  redirect '/'
 end
 
