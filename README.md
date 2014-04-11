@@ -16,3 +16,7 @@ Schema:
 
 ![Imgur](http://i.imgur.com/JvaDddG.jpg?1)
 
+Workflow:
+======================
+
+![Imgur](http://i.imgur.com/41yEUNm.png?1)
