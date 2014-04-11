@@ -2,7 +2,7 @@
 
 
 
-<% if current_user && @surveys %>
+<% if current_user && @surveys.count > 0 %>
   <ul>
     <% @surveys.each do |survey| %>
     <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a> by <%= survey.user.username %></li>
