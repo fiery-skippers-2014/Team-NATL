@@ -71,3 +71,4 @@ post '/survey/:id/submit' do
   #creates multiple record in users_answers
   #UsersChoice.create(:user_id : session[:user_id], :choice_id : ????)
 end
+
