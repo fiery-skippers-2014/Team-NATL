@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :surveys
-  has_many :user_surveys
-  has_many :user_answers
+  has_many :users_surveys
+  has_many :users_choices
 
   include BCrypt
 
