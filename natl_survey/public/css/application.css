@@ -1,0 +1,17 @@
+body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+  width: 98.5%;
+  padding: 10px;
+  border: 1px dotted black;
+  background-color: #F3EDD6;
+}
+
+
+
+
+

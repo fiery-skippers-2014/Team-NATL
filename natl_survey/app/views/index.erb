@@ -1,0 +1,17 @@
+
+  <h1>Hacker News</h1>
+
+  <% @posts.each do |post| %>
+  <section class="post-list">
+
+    <a href="<%= post.link %>"><%= post.title %></a>
+    <form action="/postvote" method="post" class="postvote">
+      <input type="hidden" name="post_id" value="<%= post.id %>">
+      <input type="submit" value="vote">
+
+    </form>
+      <p><span id="post<%= post.id %>"><%= post.post_votes.count %></span> points, submitted by <a href="/users/<%= post.user_id %>"><%= post.user.username %></a>
+      @ <%= post.created_at %> | <a href="/post/<%= post.id %>"><%= post.comments.count %> comments</a></p><br>
+    <% end %>
+  </section>
+
