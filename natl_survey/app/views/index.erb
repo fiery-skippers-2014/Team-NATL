@@ -7,6 +7,9 @@
     <% @surveys.each do |survey| %>
     <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a> by <%= survey.user.username %></li>
     <% end %>
+    <% else %>
+    <%= erb :_login %>
+
   </ul>
 
 <% end %>

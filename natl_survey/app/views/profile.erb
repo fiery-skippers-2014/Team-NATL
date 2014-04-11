@@ -1,0 +1,16 @@
+<h1><%= @user.username %></h1>
+
+<h2> Surveys you have created</h2>
+  <ol>
+    <% @user.surveys.each do |survey| %>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+
+    <% end %>
+  </ol>
+<h2> Surveys you have taken</h2>
+ <ol>
+    <% @user.users_surveys.each do |user_survey| %>
+      <li><a href="/survey/<%= user_survey.id %>"><%= user_survey.survey.title %></a></li>
+
+    <% end %>
+  </ol>
