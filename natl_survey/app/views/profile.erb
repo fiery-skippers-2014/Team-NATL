@@ -10,11 +10,12 @@
       <li class="survey-title-display"><%= survey.title %></li>
         <div class='display-chart'>
           <button>display</button>
+          <div class="toggle">
           <% survey.questions.each do |question| %>
             <div id="question<%= question.id %>" class="graph-question">
               <br>
               <p class="question-title"><%= question.text %></p>
-              <div class="toggle">
+
               <% if question.users_choices.count != 0 %>
                 <% question.choices.each do |choice| %>
                 <% width = choice.users_choices.count.to_f / question.users_choices.count.to_f * 100 %>
@@ -30,8 +31,9 @@
                 <% end %>
               <% end %>
             </div>
-          </div>
+
             <% end %>
+            </div>
       <% end %>
     </div>
   </ol>
