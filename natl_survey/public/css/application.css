@@ -47,3 +47,9 @@ p {
   margin-bottom: 10px;
 
 }
+#add_new_question {
+  float: right;
+  /*
+  position: relative;
+  left: 500px;*/
+}

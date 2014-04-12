@@ -42,8 +42,25 @@ end
 post '/survey' do
   @user = current_user
   params[:user_id] = @user.id
-  @survey = Survey.create(params)
-  redirect "/survey/#{@survey.id}/question/new"
+  new_params =  params.to_a
+  title = new_params.shift
+  user = new_params.pop
+  Survey.create(title: title[1], user_id: params[:user_id])
+  @survey = Survey.find_by_title(title[1])
+  new_params.each_with_index do |value, index|
+    if index % 6 == 0
+      Question.create(survey_id: @survey.id, text: value[1])
+    else
+      question = Question.last
+      Choice.create(question_id: question.id, text: value[1]) if value[1].length > 0
+    end
+  end
+
+
+
+
+  # @survey = Survey.create(params)
+  erb :_question
 end
 
 get '/survey/:id/question/new' do
