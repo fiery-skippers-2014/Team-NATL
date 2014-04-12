@@ -1,7 +1,7 @@
 <div>
   <h2><%= @survey.title %></h2>
   <% if @survey.pic  %>
-    <img src="<%= @survey.pic %>">
+    <img class="survey-image" src="<%= @survey.pic %>">
   <% end %>
   <form id="survey<%= @survey.id %>" method="post" action="/survey/submit">
   <% @survey.questions.each_with_index do |question, question_number|  %>
