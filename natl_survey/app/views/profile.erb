@@ -40,7 +40,7 @@
 <% if @user.users_surveys.count > 0 %>
  <ol>
     <% @user.users_surveys.each do |user_survey| %>
-      <li><a href="/survey/<%= user_survey.id %>"><%= user_survey.survey.title %></a></li>
+      <li><a href="/survey/<%= user_survey.survey.id %>"><%= user_survey.survey.title %></a></li>
       <% end %>
     <% else %>
       <p>You haven't taken any surveys yet!</p>

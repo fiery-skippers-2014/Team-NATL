@@ -97,6 +97,7 @@ end
 # Viewing/ taking survey routes
 
 get '/survey/:id' do
+  @user = current_user
   @survey = Survey.find(params[:id])
   erb :survey
 end
