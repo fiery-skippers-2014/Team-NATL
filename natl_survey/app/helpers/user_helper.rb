@@ -8,7 +8,7 @@ helpers do
       if completed_survey.survey.id == survey.id
         return true
       else
-        return sfalse
+        return false
       end
     end
   end
