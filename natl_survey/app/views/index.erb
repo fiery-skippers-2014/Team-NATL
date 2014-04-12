@@ -7,9 +7,12 @@
     <% @surveys.each do |survey| %>
     <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a> by <%= survey.user.username %></li>
     <% end %>
-    <% else %>
+<% elsif !current_user%>
     <%= erb :_login %>
+<% else  %>
+
 
   </ul>
+  <h2>No surveys yet!</h2>
 
 <% end %>

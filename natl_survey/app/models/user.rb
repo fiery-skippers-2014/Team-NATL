@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :surveys
-  has_many :users_surveys
-  has_many :users_choices
+  has_many :surveys, dependent: :destroy
+  has_many :users_surveys, dependent: :destroy
+  has_many :users_choices, dependent: :destroy
   validates :username, uniqueness: true, presence: true
   validates :password_hash, presence: true
 
