@@ -35,7 +35,7 @@ describe "IndexController" do
 #Guys, everytime you run the below test,change the username
 #otherwise you will get an error, saying username is taken
   it 'should add a new user' do
-  	new_params={username:"NAM", password: "123"}
+  	new_params={username:"NAMZI", password: "123"}
 		expect{
 		post('/register', new_params)
 		}.to change(User, :count).by(1)

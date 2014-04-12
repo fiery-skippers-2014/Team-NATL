@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_readonly :password
   has_many :surveys, dependent: :destroy
   has_many :users_surveys, dependent: :destroy
   has_many :users_choices, dependent: :destroy
