@@ -65,7 +65,6 @@ get '/survey/:id/question/:question_id/choice/new' do
 end
 
 post '/survey/:id/question/:question_id/choice' do
-  p params
   @survey = Survey.find(params[:id])
   @question = Question.find(params[:question_id])
   choice1 = Choice.create(text: params[:text1], question_id: params[:question_id])
@@ -85,7 +84,7 @@ end
 
 post '/survey/submit' do
   params.each do |question_id, choice_id|
-     UsersChoice.create(user_id: session[:user_id], choice_id: choice_id)
+     UsersChoice.create(user_id: session[:user_id], choice_id: choice_id, question_id: question_id)
       @question = question_id
   end
   @question = Question.find(@question)

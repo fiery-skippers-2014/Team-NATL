@@ -2,7 +2,10 @@ body {
   max-width: 960px;
   margin: 0 auto;
 }
+p {
+  margin: 0px;
 
+}
 .container {
   margin: 0 auto;
   width: 98.5%;
@@ -32,4 +35,15 @@ body {
 #logo {
   font-size: 2em;
   font-weight: bold;
+}
+
+.graph-bar{
+  height: 20px;
+  background-color: blue;
+
+}
+
+.graph-question p{
+  margin-bottom: 10px;
+
 }
