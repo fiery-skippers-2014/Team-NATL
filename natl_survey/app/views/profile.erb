@@ -7,12 +7,26 @@
   <ol>
     <% @user.surveys.each do |survey| %>
       <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+          <% survey.questions.each do |question| %>
+          <div id="question<%= question.id %>" class="graph-question">
+            <p><%= question.text %></p>
+          <% question.choices.each do |choice| %>
 
+          <% width = choice.users_choices.count.to_f / question.users_choices.count.to_f * 100 %>
+              <div class="background-graph" >
+                <p><%= choice.text %> - <%= choice.users_choices.count %> total votes - (<%= width %>%)</p>
+                <div class="graph-bar" style="width: <%= width %>%;"></div><br>
+              </div>
+              <div class="clearfix"></div>
+          <% end %>
+          </div>
+          <% end %>
     <% end %>
   </ol>
   <% else %>
   <p>You haven't created any surveys yet!</p>
   <% end %>
+
 
 
 
