@@ -56,11 +56,7 @@ post '/survey' do
     end
   end
 
-
-
-
-  # @survey = Survey.create(params)
-  redirect "/survey/#{@survey.id }"
+  redirect "/users/#{@user.id }"
 end
 
 get '/survey/:id/question/new' do
