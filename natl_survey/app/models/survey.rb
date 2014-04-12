@@ -4,3 +4,4 @@ class Survey < ActiveRecord::Base
   has_many :users_surveys, dependent: :destroy
   validates :title, presence: true, uniqueness: true
 end
+
