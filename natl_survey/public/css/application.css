@@ -14,6 +14,7 @@ p {
   background-color: #F3EDD6;
 }
 
+
 .header a{
   text-decoration: none;
 
@@ -37,10 +38,11 @@ p {
   font-weight: bold;
 }
 
+
+
 .graph-bar{
   height: 20px;
   background-color: blue;
-
 }
 
 .graph-question p{

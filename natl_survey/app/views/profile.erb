@@ -13,7 +13,10 @@
           <% question.choices.each do |choice| %>
 
           <% width = choice.users_choices.count.to_f / question.users_choices.count.to_f * 100 %>
-              <span ><%= choice.text %> - <%= choice.users_choices.count %> total votes - (<%= width %>%)</span>  <p class="graph-bar" style="width: <%= width %>%;"></p>
+              <div class="background-graph" >
+                <p><%= choice.text %> - <%= choice.users_choices.count %> total votes - (<%= width %>%)</p>
+                <div class="graph-bar" style="width: <%= width %>%;"></div><br>
+              </div>
               <div class="clearfix"></div>
           <% end %>
           </div>
@@ -23,6 +26,7 @@
   <% else %>
   <p>You haven't created any surveys yet!</p>
   <% end %>
+
 
 
 
