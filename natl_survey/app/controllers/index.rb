@@ -40,12 +40,14 @@ get '/survey/new' do
 end
 
 post '/survey' do
+
   @user = current_user
   params[:user_id] = @user.id
   new_params =  params.to_a
   title = new_params.shift
   user = new_params.pop
-  Survey.create(title: title[1], user_id: params[:user_id])
+  pic =  new_params.shift
+  Survey.create(title: title[1], user_id: params[:user_id], pic: pic[1])
   @survey = Survey.find_by_title(title[1])
   new_params.each_with_index do |value, index|
     if index % 6 == 0
