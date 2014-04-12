@@ -42,29 +42,31 @@ post '/survey' do
   @user = current_user
   params[:user_id] = @user.id
   @survey = Survey.create(params)
-  redirect "/survey/#{@survey.id}/question/new"
+  erb :_question_new, :layout => false
 end
 
-get '/survey/:id/question/new' do
-  @survey = Survey.find(params[:id])
-  erb :question_new
-end
+# get '/survey/:id/question/new' do
+#   @survey = Survey.find(params[:id])
+#   erb :question_new
+# end
 
-post '/survey/:id/question' do
+post '/survey/question' do
+
+  @user = User.find(session[:user_id])
+  @survey_id = @user.surveys.last.id
   @question = Question.new(text: params[:text])
-  @question.survey_id = params[:id]
+  @question.survey_id = @survey_id
   @question.save
-  redirect "/survey/#{params[:id]}/question/#{@question.id}/choice/new"
+  erb :_choice_new, :layout => false
 end
 
-get '/survey/:id/question/:question_id/choice/new' do
-  @survey = Survey.find(params[:id])
-  @question = Question.find(params[:question_id])
-  erb :choice_new
-end
+# get '/survey/:id/question/:question_id/choice/new' do
+#   @survey = Survey.find(params[:id])
+#   @question = Question.find(params[:question_id])
+#   erb :choice_new
+# end
 
-post '/survey/:id/question/:question_id/choice' do
-  p params
+post '/survey/question/choice' do
   @survey = Survey.find(params[:id])
   @question = Question.find(params[:question_id])
   choice1 = Choice.create(text: params[:text1], question_id: params[:question_id])
@@ -72,7 +74,8 @@ post '/survey/:id/question/:question_id/choice' do
   choice3 = Choice.create(text: params[:text3], question_id: params[:question_id]) unless params[:text3].empty?
   choice4 = Choice.create(text: params[:text4], question_id: params[:question_id]) unless params[:text4].empty?
   choice5 = Choice.create(text: params[:text5], question_id: params[:question_id]) unless params[:text5].empty?
-  redirect "/survey/#{@survey.id}"
+  # redirect "/survey/#{@survey.id}"
+  erb :_choice_new, :layout => false
 end
 
 # Viewing/ taking survey routes
