@@ -62,7 +62,7 @@ post '/survey' do
 
 
   # @survey = Survey.create(params)
-  erb :_question
+  redirect "/survey/#{@survey.id }"
 end
 
 get '/survey/:id/question/new' do

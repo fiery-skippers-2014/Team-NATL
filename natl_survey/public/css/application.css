@@ -55,3 +55,8 @@ p {
   position: relative;
   left: 500px;*/
 }
+
+.survey-image {
+  max-width: 400px;
+  max-height: 400px;
+}
