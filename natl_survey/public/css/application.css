@@ -60,3 +60,17 @@ p {
   max-width: 400px;
   max-height: 400px;
 }
+
+.question-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.survey-title-display {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.choice-text {
+  font-weight: bold;
+}
