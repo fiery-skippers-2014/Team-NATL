@@ -3,12 +3,10 @@ require 'json'
 get '/' do
   @user= current_user
   @surveys = Survey.all
-
   erb :index
 end
 
 get '/login' do
-
   erb :login
 end
 
