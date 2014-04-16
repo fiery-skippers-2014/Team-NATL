@@ -1,0 +1,40 @@
+body {
+  max-width: 960px;
+  margin: 0 auto;
+}
+p {
+  margin: 0px;
+
+}
+.container {
+  margin: 0 auto;
+  width: 98.5%;
+  padding: 10px;
+
+}
+
+
+.header a{
+  text-decoration: none;
+
+}
+.header ul {
+  list-style: none;
+}
+.header ul li {
+  display: inline;
+  border-left: 1px solid black;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.header ul li:first-child{
+  border: none;
+}
+
+#logo {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+

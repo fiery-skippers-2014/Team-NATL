@@ -1,0 +1,33 @@
+<h1>Selfie City</h1>
+
+
+
+<% if current_user  %>
+  <h2>Welcome!</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% elsif !current_user%>
+    <%= erb :_login %>
+<% else  %>
+
+
+
+
+
+<% end %>

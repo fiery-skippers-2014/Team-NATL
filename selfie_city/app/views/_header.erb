@@ -1,0 +1,14 @@
+<div class="header">
+  <ul>
+    <li id="logo"><a href="/">Selfie City</a></li>
+    <% if current_user %>
+      <li>Hello <%= @user.username %>!</a></li>
+      <li><a href="/users/<%= @user.id %>">My Profile</a></li>
+      <li><a href="/logout">logout</a></li>
+      <% else %>
+      <li><a href="/login">login</a></li>
+      <% end %>
+
+  </ul>
+
+</div>
