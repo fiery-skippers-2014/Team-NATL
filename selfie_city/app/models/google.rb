@@ -15,14 +15,15 @@ module Google
     end
 
     def parseForCity(results)
-        raw = JSON.parse(results)
-        ap results = raw['results'][0]['address_components'][3]['long_name']
-        # ap raw
+      raw = JSON.parse(results)
+      results = raw['results'][0]['address_components']
+
+      results.each do |picture|
+        if picture['types'][0] == 'locality'
+          return picture['long_name']
+        end
+      end
     end
-
-
-
-
   end
 end
 
@@ -32,3 +33,4 @@ end
 # CLIENT SECRET a5e3c5e4a9bc4ed8a238a1b0dd1acef8
 # WEBSITE URL http://127.0.0.1:9393/
 # REDIRECT URI  http://127.0.0.1:9393/https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=false&key=AIzaSyCgfI0P9Zt4snDi9O02Vq2TSbZJCNsaZB4
+# [3]['long_name']
