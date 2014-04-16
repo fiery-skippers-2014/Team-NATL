@@ -42,13 +42,14 @@ module Instagram
 
     def add_to_database(photos)
       photos.each_with_index do |photo,index|
-        ap photo
-
-
+        # ap photo
+        google = Google::Client.new
+        city = google.get_address(photo[1][:latitude], photo[1][:longitude]) if photo[1][:latitude] != nil
+        p city
         if Photo.find_by_insta_id(photo[0])
           p 'already exists'
         else
-          @photo = Photo.create(insta_id: photo[1][:insta_id], latitude: photo[1][:latitude], longitude: photo[1][:longitude], insta_text: photo[1][:image_text], url: photo[1][:image_url] )
+          # @photo = Photo.create(insta_id: photo[1][:insta_id], latitude: photo[1][:latitude], longitude: photo[1][:longitude], insta_text: photo[1][:image_text], url: photo[1][:image_url] )
         end
       end
     end
